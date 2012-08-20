@@ -30,6 +30,12 @@ Bundler.require(:default, PADRINO_ENV)
 #   include Padrino::Helpers::TranslationHelpers
 # end
 
+# Configure Arena client options
+Arena.configure do |config|
+  config.api_version = 'v2'
+  config.base_domain = 'staging.are.na'
+end
+
 ##
 # Add your before (RE)load hooks here
 #

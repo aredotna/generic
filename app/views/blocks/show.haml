@@ -1,7 +1,8 @@
-= partial 'layouts/navigation', :locals => { :channels => '' }
+- content_for :title do
+  = @block['generated_title']
+
+= partial 'layouts/navigation', :locals => { :current => @block, :channels => '' }
 
 - content_for :main do
-  .representation{ :class => @block['block_type'].downcase }
-    = partial "representations/full/#{@block['block_type'].downcase}", :locals => { "#{@block['block_type'].downcase}".to_sym => @block }
-  .metadata
-    = partial "representations/metadata", :locals => { :block => @block }
+  .representation{ :class => @block['class'].downcase }
+    = partial "representations/full/#{@block['class'].downcase}", :locals => { "#{@block['class'].downcase}".to_sym => @block }

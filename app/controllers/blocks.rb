@@ -1,7 +1,7 @@
 Jtt.controllers :blocks do
 
   get :show, :map => "/view/:id" do
-    @block = Arena::Client.block(
+    @block = Arena.block(
         params[:e] ? params[:id] : slug_decode(params[:id])
       )
     

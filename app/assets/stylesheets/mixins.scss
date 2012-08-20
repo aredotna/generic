@@ -2,10 +2,10 @@
 // ---------
 $unit:        20px;
 $magenta:     #93c;
-$green:       #090;
-$sans:        sans-serif;
+$standout:    #e00;
+$sans:        'Helvetica Neue', Arial, Helvetica, sans-serif;
 $serif:       Times, 'Times New Roman', Georgia, serif;
-$font-size:   14px;
+$font-size:   16px;
 $line-height: $unit;
 $page-width:  800px;
 
@@ -81,6 +81,12 @@ $page-width:  800px;
   -webkit-animation: progress-bar-stripes 2s linear infinite;
      -moz-animation: progress-bar-stripes 2s linear infinite;
           animation: progress-bar-stripes 2s linear infinite;
+}
+
+@mixin border-radius($radius: 5px) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
 }
 
 @-webkit-keyframes progress-bar-stripes {

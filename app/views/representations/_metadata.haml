@@ -1,8 +1,9 @@
 - if block['title']
-  .title.tk-franklin-gothic-urw= block['title']
+  .title
+    %span.underline= block['title']
 
 - if block['description']
-  .description= block['description']
+  .description= block['description']['html']
 
-- if block['source_url']
-  .source.tk-franklin-gothic-urw= link_to block['source_url'], block['source_url'], :target => '_blank'
+- if block['source']
+  .source= link_to block['source']['url'], block['source']['url'], :target => '_blank'

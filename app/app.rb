@@ -4,7 +4,7 @@ class Jtt < Padrino::Application
   register Padrino::Mailer
   register Padrino::Helpers
   register Padrino::Assets
-
+  
   enable :sessions
 
   ##
