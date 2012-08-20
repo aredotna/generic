@@ -8,7 +8,7 @@
         - if block_is_text?(block)
           = link_to '&#9679;', url_for(:blocks, :show, :id => slug_encode(block['id'].to_s)), :class => 'permalink'
         - elsif block_is_channel?(block)
-          = link_to url_for(:channels, :show, :id => slug_encode(block['slug'])), :class => 'area' do
+          = link_to url_for(:channels, :show, :id => slug_encode(block['slug'])), :class => 'channel-thumb area', :data => { :slug => block['slug'] } do
             / Clickable area
         - else
           = link_to url_for(:blocks, :show, :id => slug_encode(block['id'].to_s)), :class => 'area' do
@@ -16,3 +16,10 @@
 
         / Render representation
         = partial "representations/thumbs/#{block['class'].downcase}", :locals => { "#{block['class'].downcase}".to_sym => block }
+  / :javascript
+  /   $('.channel-thumb').on('mouseover', function() {
+  /     $this = $(this);
+  /     $.getJSON('http://staging.are.na/api/v2/channels/' + $(this).data('slug') + '/thumb?callback=?', function(data){
+  /       console.log(data);
+  /     });
+  /   });

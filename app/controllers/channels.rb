@@ -23,4 +23,10 @@ Jtt.controllers :channels do
       render 'channels/show'
     end
   end
+
+  get :thumb, :map => "/:id/thumb" do
+    @channel = Arena.channel_thumb(
+        params[:e] ? params[:id] : slug_decode(params[:id]), {:per => 999}
+      )
+  end
 end
