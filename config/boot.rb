@@ -33,7 +33,7 @@ Bundler.require(:default, PADRINO_ENV)
 # Configure Arena client options
 Arena.configure do |config|
   config.api_version = 'v2'
-  config.base_domain = 'staging.are.na'
+  config.base_domain = 'are.na'
 end
 
 ##
