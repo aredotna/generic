@@ -1,4 +1,4 @@
-class Jtt < Padrino::Application
+class Generic < Padrino::Application
   register ScssInitializer
   register Padrino::Rendering
   register Padrino::Mailer

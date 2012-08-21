@@ -1,4 +1,7 @@
-Jtt.controllers :blocks do
+Generic.controllers :blocks do
+  before do
+    @breadcrumb = {}
+  end
 
   get :show, :map => "/view/:id" do
     @block = Arena.block(

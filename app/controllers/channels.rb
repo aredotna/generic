@@ -1,4 +1,4 @@
-Jtt.controllers :channels do
+Generic.controllers :channels do
   get :index, :map => "/"  do
     @channel = Arena.channel(DEFAULT_CHANNEL_IDENTIFIER, {:per => 999})
     @blocks = @channel['contents'].sort_by{|b|b['position']}.select{|b|b['published'] || b['base_class'] == 'Block'}
