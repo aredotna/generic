@@ -147,7 +147,6 @@ blockquote {
       width: 300px;
       height: 300px;
       background-color: #ccc;
-      @include box-shadow(2px 2px 4px #999);
       
       .title {
         position: absolute;
@@ -161,9 +160,12 @@ blockquote {
         font-size: $font-size;
         letter-spacing: 0;
         color: #333;
+        text-shadow: 0 1px 1px rgba(255,255,255,.5);
         background: rgba(255,255,255,.5);
         text-align: center;
         z-index: 11;
+        $shadow: inset 1px 1px 2px rgba(0,0,0,.5), inset -1px -1px 2px rgba(0,0,0,.25);
+        @include box-shadow($shadow);
       }
 
       .inner {
