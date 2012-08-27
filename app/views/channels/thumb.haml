@@ -1,0 +1,5 @@
+.thumbs
+  - @blocks.each do |block|
+    .thumb{ :class => "#{block['class'].downcase}" }
+      - if block['image']
+        = image_tag "http://d2ss1gpcas6f9e.cloudfront.net/?thumb=100x100%23&src=#{block['image']['thumb']['url']}"
