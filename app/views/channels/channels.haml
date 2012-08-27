@@ -1,0 +1,2 @@
+- @channels.try(:each) do |channel|
+  .item= link_to channel['title'], url_for(:channels, :show, :id => slug_encode(channel['slug']))

@@ -24,5 +24,12 @@ Generic.controllers :channels do
 
     render 'channels/thumb', :layout => false
   end
-  
+
+  get :channels, :map => "/:id/channels" do
+    @channels = Arena.channel_channels(
+        params[:e] ? params[:id] : slug_decode(params[:id])
+      )['channels'].select { |c| c['published'] }
+    render 'channels/channels', :layout => false
+  end
+
 end
