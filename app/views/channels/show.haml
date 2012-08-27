@@ -8,7 +8,7 @@
         - if block_is_text?(block)
           = link_to '&#9679;', url_for(:blocks, :show, :id => slug_encode(block['id'].to_s)), :class => 'permalink'
         - elsif block_is_channel?(block)
-          = link_to url_for(:channels, :show, :id => slug_encode(block['slug'])), :class => 'channel-thumb area', :data => { :slug => slug_encode(block['slug'].to_s) } do
+          = link_to url_for(:channels, :show, :id => slug_encode(block['slug'])), :class => 'channel-thumb area' do
             / Clickable area
         - else
           = link_to url_for(:blocks, :show, :id => slug_encode(block['id'].to_s)), :class => 'area' do
@@ -19,7 +19,7 @@
 
   :javascript
     $('.channel-thumb').each(function(i, el){
-      $.get('/' + $(el).data('slug') + '/thumb', function(data) {
+      $.get($(el).attr('href') + '/thumb', function(data) {
         $(el).parent().find('.inner').html(data);
       });
     });
