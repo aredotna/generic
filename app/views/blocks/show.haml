@@ -1,7 +1,7 @@
 - content_for :title do
-  = @block['generated_title']
+  = @block['title']
 
-= partial 'layouts/navigation', :locals => { :current => @block, :channels => '' }
+= partial 'layouts/navigation', :locals => { :current => @block, :channels => @channels }
 
 - content_for :main do
   .representation{ :class => @block['class'].downcase }
