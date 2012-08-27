@@ -16,7 +16,7 @@ Generic.helpers do
   end
 
   BLOCK_TYPES.each do |type|
-    define_method "block_is_#{type}?" do |block|
+    define_method "is_#{type}?" do |block|
       block['class'] == type.to_s.capitalize
     end
   end
