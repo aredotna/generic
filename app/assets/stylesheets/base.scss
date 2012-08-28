@@ -77,6 +77,31 @@ blockquote {
   }
 }
 
+.menu { 
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(255,255,255,.5);
+  z-index: 20;
+  display: none;
+  padding: $unit;
+  text-align: left;
+}
+
+.loading {
+  position: fixed;
+  top: 50%;
+  left: $unit;
+  right: $unit;
+  height: $unit/2;
+  margin-top: $unit/4;
+  @include loading(#033);
+  z-index: 90;
+  display: none;
+}
+
 .label {
   padding: 1px 4px 2px;
   background: $standout;

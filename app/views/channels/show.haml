@@ -28,7 +28,13 @@
       e.preventDefault();
       el = this;
 
+      $('#loading').show();
       $.get($(el).attr('href') + '/channels', function(data) {
-        console.log(data);
+        $('#menu').show().html(data);
+        $('#loading').hide();
       });
+    });
+
+    $('#menu').on('click', function(e){
+      $(this).hide();
     });
