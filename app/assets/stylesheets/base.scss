@@ -88,7 +88,13 @@ blockquote {
   display: none;
   padding: $unit;
   text-align: left;
+  -moz-column-width: 200px;
+  -webkit-column-width: 200px;
+  -moz-column-gap: $unit;
+  -webkit-column-gap: $unit;
 }
+
+#menu .item { display: block; }
 
 .loading {
   position: fixed;
