@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/arenahq/arena-rb.git
-  revision: ab60344faa030afc178c167e1e544ff58a5debe6
+  revision: d0d1de4d808db6f27af869dde3dcda67eed28b50
   specs:
     arena (0.0.2)
       httparty
