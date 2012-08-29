@@ -1,40 +1,16 @@
-= partial 'layouts/navigation', :locals => { :current => @channel }
+= partial 'layouts/navigation', :locals => { :current => @channel, :_channels => @_channels }
 
 - content_for :main do
   .objects
     - @blocks.each do |block|
       .object{ :class => "#{block['class'].downcase}" }
-        / Permalink
         - if is_text?(block)
           = link_to '&#9679;', url_for(:blocks, :show, :id => slug_encode(block['id'].to_s)), :class => 'permalink'
         - elsif is_channel?(block)
           = link_to url_for(:channels, :show, :id => slug_encode(block['slug'])), :class => 'channel-thumb area' do
-            / Clickable area
+            / #
         - else
           = link_to url_for(:blocks, :show, :id => slug_encode(block['id'].to_s)), :class => 'area' do
-            / Clickable area
+            / #
 
-        / Render representation
         = partial "representations/thumbs/#{block['class'].downcase}", :locals => { "#{block['class'].downcase}".to_sym => block }
-
-  :javascript
-    $('.channel-thumb').each(function(i, el){
-      $.get($(el).attr('href') + '/thumb', function(data) {
-        $(el).parent().find('.inner').html(data);
-      });
-    });
-
-    $('.channels').on('click', function(e) {
-      e.preventDefault();
-      el = this;
-
-      $('#loading').show();
-      $.get($(el).attr('href') + '/channels', function(data) {
-        $('#menu').show().html(data);
-        $('#loading').hide();
-      });
-    });
-
-    $('#menu').on('click', function(e){
-      $(this).hide();
-    });

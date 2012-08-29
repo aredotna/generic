@@ -10,5 +10,5 @@
 
   - if is_channel?(current)
     .item
-      = link_to '#', url_for(:channels, :show, :id => slug_encode(current['slug'])), :class => 'channels'
+      = link_to '#', url_for(:channels, :show, :id => slug_encode(current['slug'])), :class => 'channels', :data => { :embedded_channels => _channels.map {|c| "<div class='item'>#{link_to c['title'], url_for(:channels, :show, :id => slug_encode(c['slug']))}</div>" } }
     #menu.menu

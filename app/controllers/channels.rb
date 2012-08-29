@@ -2,6 +2,7 @@ Generic.controllers :channels do
 
   get :index, :map => "/"  do
     @channel = Arena.channel(DEFAULT_CHANNEL_IDENTIFIER, { :per => 999 })
+    @_channels = get_channels(@channel)
     @blocks = get_blocks(@channel)
 
     render 'channels/show'
@@ -12,6 +13,7 @@ Generic.controllers :channels do
     @channel = Arena.channel(
         params[:e] ? params[:id] : slug_decode(params[:id]), { :per => 999 }
       )
+    @_channels = get_channels(@channel)
     @blocks = get_blocks(@channel)
     render 'channels/show'
   end
